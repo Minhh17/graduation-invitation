@@ -1,0 +1,179 @@
+<!--
+  Graduation Mini‑Site for [NAME]
+
+  Variables (search and replace these values to customise your site):
+  NAME: Nguyễn Hải Minh
+  DATE: Thứ Chủ nhật, 28/09/2025
+  TIME: 14h
+  VENUE_NAME: đẠi học bách khoa hà nội
+  VENUE_ADDRESS: hội trường C2 đẠi học bách khoa hà nội
+  MAP_LINK: https://maps.app.goo.gl/1Um7KazB5kDxb4vA8
+  HASHTAG: #letotnghiep
+  COVER_PHOTO_URL: link ảnh bìa
+  GALLERY_URLS: [array of 6–8 link ảnh]
+  RSVP_FORM_URL: [URL tới form RSVP]
+  ICS_URL: [link file .ics để thêm vào lịch]
+
+-->
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lễ tốt nghiệp của Nguyễn Hải Minh</title>
+    <meta name="description" content="Trang mời dự lễ tốt nghiệp của Nguyễn Hải Minh vào Thứ Chủ nhật, 28/09/2025 tại đẠi học bách khoa hà nội. Hãy đến chung vui và lưu giữ những khoảnh khắc đáng nhớ!" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Lễ tốt nghiệp của Nguyễn Hải Minh" />
+    <meta property="og:description" content="Tham gia buổi lễ tốt nghiệp của Nguyễn Hải Minh và cùng nhau chụp vài tấm ảnh kỷ niệm." />
+    <meta property="og:image" content="COVER_PHOTO_URL" />
+    <meta property="og:type" content="website" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lễ tốt nghiệp của Nguyễn Hải Minh" />
+    <meta name="twitter:description" content="Tham gia buổi lễ tốt nghiệp của Nguyễn Hải Minh và cùng nhau chụp vài tấm ảnh kỷ niệm." />
+    <meta name="twitter:image" content="COVER_PHOTO_URL" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300509e'><circle cx='8' cy='8' r='8'/></svg>" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar animate">
+      <div class="logo">Graduation • Nguyễn Hải Minh</div>
+      <nav class="nav-links">
+        <a href="#about">Giới thiệu</a>
+        <a href="#when-where">Thời gian & Địa điểm</a>
+        <a href="#schedule">Lịch trình</a>
+        <a href="#gallery">Thư viện ảnh</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="rsvp-cta" data-href="RSVP_FORM_URL" onclick="openRSVP(event)">RSVP</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero animate" id="about">
+      <h1>Hãy chung vui cùng Nguyễn Hải Minh 🎓</h1>
+      <p class="subtitle">Đến chung vui, chụp vài tấm ảnh kỷ niệm nhé!<br />
+        <span class="date-chip">Thứ Chủ nhật, 28/09/2025 • 14h • Đai học Bách khoa Hà Nội</span>
+      </p>
+      <div class="cta-group">
+        <button class="button primary" data-href="RSVP_FORM_URL" onclick="openRSVP(event)">RSVP ngay</button>
+        <a class="button ghost" href="ICS_URL" target="_blank" rel="noopener">Thêm vào lịch</a>
+      </div>
+      <!-- Cover photo placeholder -->
+      <div class="card" style="margin-top: var(--spacing-lg); width: 100%; max-width: 600px;">
+        <img src="COVER_PHOTO_URL" alt="Ảnh bìa lễ tốt nghiệp" style="width: 100%; height: auto; border-radius: var(--glass-radius); object-fit: cover;" />
+      </div>
+      <div class="countdown animate" id="countdown" data-date="2025-09-28" data-time="14:00"></div>
+    </section>
+
+    <!-- When & Where Section -->
+    <section id="when-where" class="when-where animate">
+      <div class="info-row">
+        <h3>Khi nào & Ở đâu</h3>
+        <p><strong>Thời gian:</strong> Chủ nhật, 28/09/2025 lúc 14h</p>
+        <p><strong>Địa điểm:</strong> Đại học Bách Khoa Hà Nội — <span id="venue-address">Hội trường C2 ĐẠi học Bách khoa Hà Nội</span></p>
+        <p class="tip">Đến sớm 10’ để chụp ảnh đẹp nhé ✨</p>
+      </div>
+      <div class="button-row">
+        <a class="button primary" href="MAP_LINK" target="_blank" rel="noopener">Mở Google Maps</a>
+        <button class="button ghost" onclick="copyAddress()">Sao chép địa chỉ</button>
+      </div>
+      <!-- Embedded map with fallback; you can replace src with a proper embed link if available -->
+      <div class="card" style="width: 100%; max-width: 800px; margin-top: var(--spacing-md);">
+        <iframe title="Map" src="" style="border:0; width: 100%; height: 350px; border-radius: var(--glass-radius);" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="animate">
+      <h2 style="text-align:center; margin-bottom: var(--spacing-md);">Lịch trình</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Check‑in</h4>
+          <p>Đến và làm thủ tục nhận lễ phục</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Ảnh nhóm</h4>
+          <p>Chụp ảnh tập thể cùng bạn bè & lớp</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Ảnh gia đình</h4>
+          <p>Chụp những khoảnh khắc ấm áp cùng gia đình</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Quăng mũ</h4>
+          <p>Khoảnh khắc tung mũ vui nhộn đánh dấu tốt nghiệp</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Cafe</h4>
+          <p>Thư giãn và trò chuyện cùng nhau sau buổi lễ</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="animate">
+      <h2 style="text-align:center; margin-bottom: var(--spacing-md);">Thư viện ảnh</h2>
+      <div class="gallery">
+        <!-- Replace the src attributes with your GALLERY_URLS -->
+        <img src="GALLERY_URL_1" alt="Ảnh kỷ niệm 1" />
+        <img src="GALLERY_URL_2" alt="Ảnh kỷ niệm 2" />
+        <img src="GALLERY_URL_3" alt="Ảnh kỷ niệm 3" />
+        <img src="GALLERY_URL_4" alt="Ảnh kỷ niệm 4" />
+        <img src="GALLERY_URL_5" alt="Ảnh kỷ niệm 5" />
+        <img src="GALLERY_URL_6" alt="Ảnh kỷ niệm 6" />
+      </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp-section animate">
+      <h2 style="margin-bottom: var(--spacing-sm);">Bạn tới chứ?</h2>
+      <p>Điền nhanh 15s nhé. Chúng mình rất mong chờ sự hiện diện của bạn!</p>
+      <button class="button primary" data-href="RSVP_FORM_URL" onclick="openRSVP(event)">RSVP ngay</button>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq animate">
+      <h2 style="text-align:center; margin-bottom: var(--spacing-md);">Câu hỏi thường gặp</h2>
+      <details>
+        <summary>Mặc gì?</summary>
+        <p>Hãy mặc lễ phục tốt nghiệp. Bạn cũng có thể chọn trang phục thoải mái nhưng lịch sự, phù hợp với buổi lễ và chụp ảnh.</p>
+      </details>
+      <details>
+        <summary>Mang theo gì?</summary>
+        <p>Đừng quên mang theo vé mời, căn cước và tinh thần thật vui vẻ. Nếu thích, bạn có thể mang theo một bó hoa nhỏ cho người thân.</p>
+      </details>
+      <details>
+        <summary>Tới muộn thì sao?</summary>
+        <p>Chúng tôi khuyến khích bạn đến đúng giờ để không bỏ lỡ khoảnh khắc quan trọng. Nếu đến muộn, hãy liên hệ với ban tổ chức để được hướng dẫn.</p>
+      </details>
+      <details>
+        <summary>Liên hệ</summary>
+        <p>Nếu bạn có bất kỳ câu hỏi nào, hãy liên hệ với Minh qua mạng xã hội hoặc số điện thoại được cung cấp trên thiệp mời.</p>
+      </details>
+    </section>
+
+    <!-- Footer -->
+    <footer class="animate">
+      <p>Chia sẻ khoảnh khắc của bạn với hashtag <strong>#HaiMinhGraduation</strong></p>
+      <div class="share-buttons">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=URL" aria-label="Chia sẻ trên Facebook" target="_blank" rel="noopener"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1 .9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.3V12h2.5l-.4 3h-2.1v7A10 10 0 0022 12z"/></svg></a>
+        <a href="https://www.facebook.com/dialog/send?link=URL&app_id=YOUR_APP_ID" aria-label="Gửi qua Messenger" target="_blank" rel="noopener"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6 2 10.5c0 2.9 1.9 5.4 4.6 6.7v4.8l4.2-2.3c.4.1.9.1 1.2.1 5.5 0 10-4.5 10-9.9S17.5 2 12 2zm1.1 11.7l-2.7-2.9L5.7 13 10 8l2.7 2.9 4.7-2.9-4.3 4.7z"/></svg></a>
+        <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zM12 7.3c-2.6 0-4.7 2.1-4.7 4.7 0 2.6 2.1 4.7 4.7 4.7s4.7-2.1 4.7-4.7c0-2.6-2.1-4.7-4.7-4.7zm0 7.4c-1.5 0-2.7-1.2-2.7-2.7S10.5 9.3 12 9.3s2.7 1.2 2.7 2.7S13.5 14.7 12 14.7zm4.6-8.6c-.5 0-.9-.4-.9-.9s.4-.9.9-.9c.5 0 .9.4 .9.9s-.4.9-.9.9z"/></svg></a>
+      </div>
+      <p style="margin-top: var(--spacing-sm);">© 2025 Nguyễn Hải Minh. All rights reserved.</p>
+    </footer>
+
+    <!-- Sticky bottom CTA for mobile -->
+    <div class="sticky-bottom">
+      <button class="button primary" data-href="RSVP_FORM_URL" onclick="openRSVP(event)">RSVP</button>
+      <a class="button ghost" href="ICS_URL" target="_blank" rel="noopener">Thêm vào lịch</a>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast" id="toast"></div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
